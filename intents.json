@@ -1,0 +1,48 @@
+{"intents": [
+        {"tag": "greeting",
+         "patterns": ["Hi there", "How are you", "Is anyone there?","Hey","Hola", "Hello", "Good day"],
+         "responses": ["Hello, thanks for asking", "Good to see you again", "Hi there, how can I help?"],
+         "context": [""]
+        },
+        {"tag": "goodbye",
+         "patterns": ["Bye", "See you later", "Goodbye", "Nice chatting to you, bye", "Till next time"],
+         "responses": ["See you!", "Have a nice day", "Bye! Come back again soon."],
+         "context": [""]
+        },
+        {"tag": "thanks",
+         "patterns": ["Thanks", "Thank you", "That's helpful", "Awesome, thanks", "Thanks for helping me"],
+         "responses": ["Happy to help!", "Any time!", "My pleasure"],
+         "context": [""]
+        },
+	{"tag":"about-you",
+	 "patterns":["How are you ?","Whats up?","How you Doing ? ", "Cool","are you fine ?"],
+	 "responses":["I am Fine. How are you ?","Greate :) How are you feeling today ? ","Having a Greate Day actually. Tell me how can i be a help to you ?"],
+	 "context":["NO way"]
+	},
+        {"tag": "noanswer",
+         "patterns": [],
+         "responses": ["Sorry, can't understand you", "Please give me more info", "Not sure I understand"],
+         "context": [""]
+        },
+        {"tag": "options",
+         "patterns": ["How you could help me?", "What you can do?", "What help you provide?", "How you can be helpful?", "What support is offered"],
+         "responses": ["I can help you with the queries if you have any regarding institute ? "],
+         "context": [""]
+        },
+        {"tag": "jokes",
+         "patterns": ["Tell Me a Joke", "Can you tell me a joke", "Tell me a awesome joke", "Tell Me Something funny" ],
+         "responses": ["Telling a joke now","You :D"],
+         "context": [""]
+        },
+        {"tag": "trinity",
+         "patterns": ["Tell me about trinity", "Task related to enroll in trinity","tips", "trinity data entry", "I want to log in to trinity", "i have a query about trinity","Institute" ],
+         "responses": ["Hi There Welcome Trinity Institute Of Professional Studies , Please visit tips.edu.in for any extended queries"],
+         "context": [""]
+	},
+	{"tag":"location",
+	"patterns":["Where is trinity ?","how can i reach to tips dwarka ?","how to reach tips ? ","help me with a route to trinity"],
+	"responses":["Hi There Trinity is located in DWARKA Sec-10 you can reach here by Delhi Metro ","Hi There we are located in Dwarka Sector - 10 "],
+	"context":[""]
+	}
+	]
+}
