@@ -67,11 +67,7 @@ def chatbot_response(msg):
 
 
 def send(msg):
-    if msg != '':
-        res = chatbot_response(msg)
-        print("[BOT]: " + res)
-    else:
-        res = chatbot_response(msg)
+    res = chatbot_response(msg)
     return res
 
 
