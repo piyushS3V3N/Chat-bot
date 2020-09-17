@@ -10,6 +10,10 @@ import binascii
 from googleapiclient.discovery import build
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
+<<<<<<< HEAD
+=======
+#from google.oauth2 import service_account
+>>>>>>> Chat-bot/master
 
 def create_message(sender, to , subject , message):
 	message = MIMEText(message)
