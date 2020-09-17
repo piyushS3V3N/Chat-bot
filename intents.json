@@ -56,22 +56,22 @@
         },
         {"tag":"bba-admission",
         "patterns":["bba fees ","How much does BBA cost?","what is the current fees for B.B.A."],
-        "responses":["Fees for BCA 2020-2023 is Rs. 1,08,490 to see complete fees structure please visit https://tips.edu.in/fee-structure"],
+        "responses":["Fees for BCA 2020-2023 is Rs. 1,10,090 to see complete fees structure please visit https://tips.edu.in/fee-structure"],
         "context":[""]
         },
 	{"tag":"bcom-admission",
         "patterns":["bcom fees ","How much does B.COM cost?","what is the current fees for B.Com"],
-        "responses":["Fees for BCA 2020-2023 is Rs. 1,08,490 to see complete fees structure please visit https://tips.edu.in/fee-structure"],
+        "responses":["Fees for BCA 2020-2023 is Rs. 1,05,890 to see complete fees structure please visit https://tips.edu.in/fee-structure"],
         "context":[""]
         },
         {"tag":"ba-llb-admission",
         "patterns":["ba.llb fees ","How much does BA.LLB cost?","what is the current fees for BA(LLB)"],
-        "responses":["Fees for BCA 2020-2023 is Rs. 1,08,490 to see complete fees structure please visit https://tips.edu.in/fee-structure"],
+        "responses":["Fees for BCA 2020-2023 is Rs. 8,54,90 to see complete fees structure please visit https://tips.edu.in/fee-structure"],
         "context":[""]
         },
         {"tag":"bajmc-admission",
         "patterns":["bajmc fees ","How much does BA(JMC) cost?","what is the current fees for BA(JMC)"],
-        "responses":["Fees for BCA 2020-2023 is Rs. 1,08,490 to see complete fees structure please visit https://tips.edu.in/fee-structure"],
+        "responses":["Fees for BCA 2020-2023 is Rs. 1,10,090 to see complete fees structure please visit https://tips.edu.in/fee-structure"],
         "context":[""]
         }
         ]
