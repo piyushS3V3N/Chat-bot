@@ -4,7 +4,7 @@ from nltk.stem import WordNetLemmatizer
 lemmatizer = WordNetLemmatizer()
 import pickle
 import numpy as np
-import pyttsx3
+#import pyttsx3
 from keras.models import load_model
 
 model= load_model('chatbot_model.h5')
@@ -62,12 +62,12 @@ def send():
     #if msg != '':
     res= chatbot_response(msg)
     print("[BOT]: " + res)
-    engine.say(res) ##Testing for fun no actual plan of integration ##
-    engine.runAndWait()
+    #engine.say(res) ##Testing for fun no actual plan of integration ##
+    #engine.runAndWait()
     #else:
     #    res = chatbot_response(msg)
 #Experimental speech output
-engine = pyttsx3.init()
+#engine = pyttsx3.init()
 while True:
     msg = input("[YOU]: ")
     if msg != 'bye':
