@@ -34,6 +34,11 @@
          "responses": ["Why's that ?", "Ohh that's not good. How can i help ? ","Ohh that's sad. Cheer up . "],
          "context": [""]
         },
+        {"tag": "unexpected-entries",
+         "patterns":["exit","clear", "kill","dir"],
+         "responses": ["Sorry? I believe you wrote it incorrectly"],
+         "context": [""]
+        },
         {"tag": "options",
          "patterns": ["How you could help me?", "What you can do?", "What help you provide?", "How you can be helpful?", "What support is offered"],
          "responses": ["I can help you with the queries if you have any regarding institute ? "],
@@ -56,22 +61,32 @@
         },
         {"tag":"bba-admission",
         "patterns":["bba fees ","How much does BBA cost?","what is the current fees for B.B.A."],
-        "responses":["Fees for BCA 2020-2023 is Rs. 1,10,090 to see complete fees structure please visit https://tips.edu.in/fee-structure"],
+        "responses":["Fees for BBA 2020-2023 is Rs. 1,10,090 to see complete fees structure please visit https://tips.edu.in/fee-structure"],
         "context":[""]
         },
 	{"tag":"bcom-admission",
         "patterns":["bcom fees ","How much does B.COM cost?","what is the current fees for B.Com"],
-        "responses":["Fees for BCA 2020-2023 is Rs. 1,05,890 to see complete fees structure please visit https://tips.edu.in/fee-structure"],
+        "responses":["Fees for B.Com 2020-2023 is Rs. 1,05,890 to see complete fees structure please visit https://tips.edu.in/fee-structure"],
         "context":[""]
         },
         {"tag":"ba-llb-admission",
         "patterns":["ba.llb fees ","How much does BA.LLB cost?","what is the current fees for BA(LLB)"],
-        "responses":["Fees for BCA 2020-2023 is Rs. 8,54,90 to see complete fees structure please visit https://tips.edu.in/fee-structure"],
+        "responses":["Fees for BA.LLB 2020-2023 is Rs. 8,54,90 to see complete fees structure please visit https://tips.edu.in/fee-structure"],
         "context":[""]
         },
         {"tag":"bajmc-admission",
         "patterns":["bajmc fees ","How much does BA(JMC) cost?","what is the current fees for BA(JMC)"],
-        "responses":["Fees for BCA 2020-2023 is Rs. 1,10,090 to see complete fees structure please visit https://tips.edu.in/fee-structure"],
+        "responses":["Fees for BA(JMC) 2020-2023 is Rs. 1,10,090 to see complete fees structure please visit https://tips.edu.in/fee-structure"],
+        "context":[""]
+        },
+        {"tag":"bajmc-about",
+        "patterns":["tell me about bajmc ","What do you think about BA(JMC) course ?","what do we study in  BA(JMC) course","What is BJMC?"],
+        "responses":["Bachelor of Journalism & Mass Communication (BJMC) is an undergraduate program that provides aspirants with knowledge about various journalistic skills in mass media such as newspapers, television, radio, internet etc. It also informs students about various technology, equipment and software involved in mass media"],
+        "context":[""]
+        },
+         {"tag":"bca-about",
+        "patterns":["tell me about bca ","What do you think about B.C.A. course ?","what do we study in BCA course","What is BCA?"],
+        "responses":["BCA abbreviated as Bachelor of Computer Application is an undergraduate degree course that gives insight into the world of Computers and its application. The duration of this undergraduate program is of 3 years divided into 6 semesters with a focus on practical skills and addressing problems arising in Computer systems and Application. The demand for computer professionals is increasing at a rapid rate due to growth which has taken place in IT and Software Industries in India."],
         "context":[""]
         }
         ]
