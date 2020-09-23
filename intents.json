@@ -70,7 +70,7 @@
         "context":[""]
         },
         {"tag":"ba-llb-admission",
-        "patterns":["ba.llb fees ","How much does BA.LLB cost?","what is the current fees for BA(LLB)"],
+        "patterns":["ba.llb fees ","How much does BA.LLB cost?","ballb fees","what is the current fees for BA(LLB)"],
         "responses":["Fees for BA.LLB 2020-2023 is Rs. 8,54,90 to see complete fees structure please visit https://tips.edu.in/fee-structure"],
         "context":[""]
         },
@@ -87,6 +87,11 @@
          {"tag":"bca-about",
         "patterns":["tell me about bca ","What do you think about B.C.A. course ?","what do we study in BCA course","What is BCA?"],
         "responses":["BCA abbreviated as Bachelor of Computer Application is an undergraduate degree course that gives insight into the world of Computers and its application. The duration of this undergraduate program is of 3 years divided into 6 semesters with a focus on practical skills and addressing problems arising in Computer systems and Application. The demand for computer professionals is increasing at a rapid rate due to growth which has taken place in IT and Software Industries in India."],
+        "context":[""]
+        },
+        {"tag":"bba-about",
+        "patterns":["tell me about bba ","What do you think about B.B.A. course ?","what do we study in  Bba course","What is bba?"],
+        "responses":["Bachelor of Business Administration or BBA is one of the most popular bachelor degree programmes after class XII. The BBA course is the gateway to numerous job opportunities in a plethora of sectors like Marketing, Education, Finance, Sales, and Government to name just a few."],
         "context":[""]
         }
         ]

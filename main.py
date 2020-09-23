@@ -37,10 +37,12 @@ def bow(sentence, words, show_details=True):
 def predict_class(sentence, model):
     p = bow(sentence, words, show_details=False)
     res = model.predict(np.array([p]))[0]
-    ERROR_THRESHOLD= 0.25
+    ERROR_THRESHOLD= 0.4
     results = [[i,r] for i,r in enumerate(res) if r>ERROR_THRESHOLD]
     results.sort(key=lambda x: x[1], reverse=True)
     return_list = []
+    if  not results:
+        return_list.append({"intent":"unexpected-entries", "probability" : "less than 0.4"})
     for r in results:
         return_list.append({"intent":classes[r[0]], "probability" : str(r[1])})
     return return_list
