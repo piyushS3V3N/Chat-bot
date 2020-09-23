@@ -41,7 +41,8 @@ def create_message_with_attachment(
   main_type, sub_type = content_type.split('/', 1)
   if main_type == 'text':
     fp = open(file, 'rb')
-    msg = MIMEText(fp.read(), _subtype=sub_type)
+    print("here")
+    msg = MIMEText(str(fp.read()), _subtype=sub_type)
     fp.close()
   elif main_type == 'image':
     fp = open(file, 'rb')
@@ -59,7 +60,7 @@ def create_message_with_attachment(
   filename = os.path.basename(file)
   msg.add_header('Content-Disposition', 'attachment', filename=filename)
   message.attach(msg)
-  return {'raw': base64.urlsafe_b64encode(message.as_string())}
+  return {'raw': base64.urlsafe_b64encode(message.as_bytes()).decode()}
 def create_message(sender, to , subject , message):
 	message = MIMEText(message)
 	message['to'] = to
