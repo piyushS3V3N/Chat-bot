@@ -60,22 +60,23 @@ def chatbot_response(msg):
     res = getResponse(ints, intents)
     return res
 
-def send():
+def send(msg):
     #if msg != '':
     res= chatbot_response(msg)
     print("[BOT]: " + res)
+    return res
     #engine.say(res) ##Testing for fun no actual plan of integration ##
     #engine.runAndWait()
     #else:
     #    res = chatbot_response(msg)
 #Experimental speech output
 #engine = pyttsx3.init()
-while True:
-    msg = input("[YOU]: ")
-    if msg != 'bye':
-        send()
-    else:
-        send()
-        break
+#while True:
+#    msg = input("[YOU]: ")
+ #   if msg != 'bye':
+  #      send()
+   # else:
+    #    send()
+     #   break
 
 #chatbot_response('hello')

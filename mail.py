@@ -98,7 +98,7 @@ def service_account_login():
 	return service
 EMAIL_FROM = 'piyushparashar2k@gmail.com' # trinitxyz@gmail.com
 EMAIL_TO = 'kali12nat07@gmail.com' #Selected from input =>
-EMAIL_SUBJECT = 'Hello There'  # Depends on Query
+EMAIL_SUBJECT = 'TheHello re'  # Depends on Query
 EMAIL_CONTENT = 'HEllo this is a test' # Depends on Query
 filename= "test.txt"
 ################################################################################
@@ -106,5 +106,5 @@ filename= "test.txt"
 ################################################################################
 service = service_account_login()
 #message = create_message(EMAIL_FROM,EMAIL_TO,EMAIL_SUBJECT,EMAIL_CONTENT)
-message = create_message_with_attachment(EMAIL_FROM,EMAIL_TO,EMAIL_SUBJECT,EMAIL_CONTENT,filename)
-sent = send_message(service,'me',message)
+#message = create_message_with_attachment(EMAIL_FROM,EMAIL_TO,EMAIL_SUBJECT,EMAIL_CONTENT,filename)
+#sent = send_message(service,'me',message)

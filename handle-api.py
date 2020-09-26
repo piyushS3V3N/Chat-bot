@@ -27,7 +27,7 @@ def jsonHandle():
     bot_response = "Custom Response"
     user_input = req_data["user-input"]
 
-    bot_response = main.send(user_input)
+    bot_response = main.chatbot_response(user_input)
 
     return jsonify({
         "method": "POST",
