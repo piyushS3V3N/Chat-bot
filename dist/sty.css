@@ -10,7 +10,7 @@
   height: 70px ;
   width: 70px ;
   position: fixed ;
-  border: 2px solid #000 ;
+  /*border: 2px solid #000 ;*/
   border-radius: 50% ;
   background-image: linear-gradient(to right, #5B34AE, #4A239d) ;
 }
@@ -40,7 +40,7 @@
   border-radius: 5% ;
   background-color: #DDD ;
   flex-direction: column ;
-  border: 2px solid black ;
+  /*border: 2px solid black ;*/
 }
 .chat-box-container
 {
@@ -98,12 +98,12 @@
 }
 .chat-box
 {
-  margin: 4px ;
+  margin: 7px ;
   flex-grow: 1 ;
   overflow-y: auto ;
   border-radius: 5% ;
   background-color: #FFF ;
-  border: 2px solid black ;
+  /*border: 2px solid black ;*/
   background-image: linear-gradient(to right, #5B34AE, lagoon, #4A239d) ;
 }
 ::-webkit-scrollbar
@@ -113,7 +113,7 @@
 }
 .chat-box p
 {
-  margin: 0 ;
+  margin: 7px ;
   padding: 6px ;
   font-size: 20px ;
   border-radius: 5% ;
@@ -126,18 +126,18 @@
 }
 .bot, .human
 {
-  margin: 4px ;
+  margin: 7px ;
   overflow: auto ;
   border-radius: 8px ;
   display: inline-block ;
-  border: 2px solid black ;
+  /*border: 2px solid black ;*/
 }
 .bot
 {
   float: left ;
   text-align: left ;
-  border-color: black ;
   margin-right: 36px ;
+  background: #E6E6E6 ;
   border-bottom-left-radius: 0px ;
 }
 .human
@@ -145,7 +145,9 @@
   float: right ;
   text-align: left ;
   margin-left: 36px ;
-  border-color: blue ;
+  /*border-color: blue ;
+  background: #40C9FF ;*/
+  background: #011011 ;
   border-bottom-right-radius: 0px ;
 }
 .bot-date, .human-date
@@ -186,9 +188,11 @@
   padding: 2px ;
   margin: 0 4px ;
   font-size: 32px ;
-  border-radius: 19px ;
+  /*border-radius: 19px ;*/
+  border-radius: 15px ;
   display: inline-block ;
-  border: 2px solid black ;
+  /*border: 2px solid black ;*/
+  border: none ;
   background-image: linear-gradient(to right, #96deda, peach, #50c9c3) ;
 }
 .chat-input:focus
@@ -203,7 +207,7 @@
   cursor: pointer ;
   font-size: 18px ;
   margin-right: 4px ;
-  border-radius: 25% ;
+  border-radius: 15px ;
   border: 2px solid black ;
   background-color: #f78512 ;
 }
