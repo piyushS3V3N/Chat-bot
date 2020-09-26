@@ -10,7 +10,6 @@
   height: 70px ;
   width: 70px ;
   position: fixed ;
-  /*border: 2px solid #000 ;*/
   border-radius: 50% ;
   background-image: linear-gradient(to right, #5B34AE, #4A239d) ;
 }
@@ -40,13 +39,12 @@
   border-radius: 5% ;
   background-color: #DDD ;
   flex-direction: column ;
-  /*border: 2px solid black ;*/
 }
 .chat-box-container
 {
   margin: 0 ;
   height: 0 ;
-  width: 98% ;
+  width: 97.5% ;
   padding: 5px ;
   flex-grow: 1 ;
   display: flex ;
@@ -103,7 +101,6 @@
   overflow-y: auto ;
   border-radius: 5% ;
   background-color: #FFF ;
-  /*border: 2px solid black ;*/
   background-image: linear-gradient(to right, #5B34AE, lagoon, #4A239d) ;
 }
 ::-webkit-scrollbar
@@ -130,7 +127,6 @@
   overflow: auto ;
   border-radius: 8px ;
   display: inline-block ;
-  /*border: 2px solid black ;*/
 }
 .bot
 {
@@ -142,12 +138,11 @@
 }
 .human
 {
+  font: #171717 ;
   float: right ;
   text-align: left ;
   margin-left: 36px ;
-  /*border-color: blue ;
-  background: #40C9FF ;*/
-  background: #011011 ;
+  background: #5f4aaafa ;
   border-bottom-right-radius: 0px ;
 }
 .bot-date, .human-date
@@ -186,13 +181,11 @@
   height: 40px ;
   flex-grow: 1 ;
   padding: 2px ;
+  border: none ;
   margin: 0 4px ;
-  font-size: 32px ;
-  /*border-radius: 19px ;*/
+  font-size: 25px ;
   border-radius: 15px ;
   display: inline-block ;
-  /*border: 2px solid black ;*/
-  border: none ;
   background-image: linear-gradient(to right, #96deda, peach, #50c9c3) ;
 }
 .chat-input:focus
