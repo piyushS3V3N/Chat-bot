@@ -1,36 +1,5 @@
 //Run "npm run dev" for compiling any changes
 
-// code to ask for user details at first use of chat bot.
-/*
-var init = (function()
-{
-  var executed = false ;
-  return function()
-  {
-    if (!executed)
-    {
-      executed = true ;
-      console.log("HI") ;
-      const date = new Date() ;
-      // code for name, email, phno
-    }
-  } ;
-})() ;
-*/
-
-// code to maximize, minimize chat bot.
-// function toggle1() {
-//     var e = document.getElementById("containerchtbx");
-//     e.classList.toggle("active");
-//     var x = document.getElementById("active");
-//     if (x.style.display == "none" || x.style.display == '') {
-//         x.style.display = "block";
-//         appendchatBx(false, "|start|");
-//         //init() ;
-//     } else
-//         x.style.display = "none";
-// }
-
 
 //code to execute bi directional communication with chat bot.
 window.onload = function() {
@@ -43,11 +12,13 @@ window.onload = function() {
         if (x.style.display == "none" || x.style.display == '') {
             x.style.display = "block";
             appendchatBx(false, "|start|");
+            first_toggle = false;
         } else
             x.style.display = "none";
     }
 
     window.toggle1 = toggle1;
+    let first_toggle = true;
 
     const courses = {
         1: "BBA",
@@ -210,7 +181,7 @@ window.onload = function() {
         console.log("botResponse called " + content);
 
         content = content.trim();
-        console.log("Content = " + content)
+        console.log("Content = " + content);
 
         if (content == "reset") {
             choice = [0, 0, 0, 0, 0, 0];
@@ -218,12 +189,12 @@ window.onload = function() {
             iter = 0;
             taking_input = false;
             return options["0"];
-        } else if (content == "|start|") {
+        } else if (content == "|start|" && first_toggle) {
             return options["0"];
         }
 
         let response = "";
-        if (content.length < 3 || taking_input) {
+        if ((content.length < 3 || taking_input) && Number.isInteger(parseInt(content))) {
             if (!taking_input) {
                 choice[index] = parseInt(content);
                 index += 1;
