@@ -4,7 +4,7 @@ from nltk.stem import WordNetLemmatizer
 lemmatizer = WordNetLemmatizer()
 import pickle
 import numpy as np
-#import pyttsx3
+
 from keras.models import load_model
 
 model= load_model('chatbot_model.h5')
@@ -46,6 +46,7 @@ def predict_class(sentence, model):
     for r in results:
         return_list.append({"intent":classes[r[0]], "probability" : str(r[1])})
     return return_list
+
 def getResponse(ints, intents_json):
     tag = ints[0]['intent']
     list_of_intents = intents_json['intents']
@@ -65,18 +66,4 @@ def send(msg):
     res= chatbot_response(msg)
     print("[BOT]: " + res)
     return res
-    #engine.say(res) ##Testing for fun no actual plan of integration ##
-    #engine.runAndWait()
-    #else:
-    #    res = chatbot_response(msg)
-#Experimental speech output
-#engine = pyttsx3.init()
-#while True:
-#    msg = input("[YOU]: ")
- #   if msg != 'bye':
-  #      send()
-   # else:
-    #    send()
-     #   break
-
-#chatbot_response('hello')
+   

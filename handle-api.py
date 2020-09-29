@@ -52,8 +52,8 @@ def emailHandle():
     EMAIL_CONTENT = ""
 
     email_to = {
-        1.1: "",
-        2.1: "",
+        1.1: "piyushparashar2k@gmail.com",
+        2.1: "piyushparashar2k@gmail.com",
         2.2: "",
         2.3: "",
         3.3: ""
@@ -70,9 +70,9 @@ def emailHandle():
     elif case == 3.3:
         EMAIL_CONTENT = "Accounts Query for security for batch: " + req_data["batch"] + ". Year: " + req_data["year"]
 
-    # service = mail.service_account_login()
-    # message = mail.create_message(EMAIL_FROM, email_to.get(case), EMAIL_SUBJECT, EMAIL_CONTENT)
-    # sent = mail.send_message(service, 'me', message)
+    service = mail.service_account_login()
+    message = mail.create_message(EMAIL_FROM, email_to.get(case), EMAIL_SUBJECT, EMAIL_CONTENT)
+    sent = mail.send_message(service, 'me', message)
 
     bot_response = "Email sent successfully."
 
