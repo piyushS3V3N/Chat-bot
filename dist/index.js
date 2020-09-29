@@ -11,8 +11,10 @@ window.onload = function() {
         var x = document.getElementById("active");
         if (x.style.display == "none" || x.style.display == '') {
             x.style.display = "block";
-            appendchatBx(false, "|start|");
-            first_toggle = false;
+            if (first_toggle) {
+                appendchatBx(false, "|start|");
+                first_toggle = false;
+            }
         } else
             x.style.display = "none";
     }
