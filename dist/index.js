@@ -25,7 +25,8 @@ window.onload = function() {
     // let user_email = "";
     let user_course = "";
     let user_name = "";
-    let index = 0;
+    let user_roll = "";
+    let user_mail = "";
     let user_batch = "";
     let user_drop = "";
     let user_purpose = "";
@@ -33,6 +34,7 @@ window.onload = function() {
     let taking_input = false;
     let taking_name = false;
     let iter = 0;
+    let index = 0;
 
     const courses = {
         1: "BBA",
@@ -59,9 +61,11 @@ window.onload = function() {
     const tips_law_no = "9315911716";
     const tips_bjmc_no = "9315911707";
 
+    const wrong_roll = "Wrong Enrollment Number: <br>Make sure number does not contain any alphabet <br>Enter again"
+    const wrong_mail = "Wrong E-mail ID: <br>Please check entered E-mail ID <br>Enter again"
     const greetings = "Hello, I\'m Chat Bot of Trinity Institute Of Professional Studies. <br>Please enter your name:"
     const options = {
-        "0": "Hello |user_name|. <br>I Operate best when asked short, direct questions. <br>What would you like to talk about <br>   1. Admissions <br>   2. Student Support <br>   3. Accounts <br>   4. HR",
+        "0": "Hello |user_name|. <br>I Operate best when asked short, direct questions. <br>Enter \'reset\' anytime to reset the options <br>What would you like to talk about <br>   1. Admissions <br>   2. Student Support <br>   3. Accounts <br>   4. HR",
         // Admission
         "1": {
             "0": "Courses Offered <br>   1. BBA <br>   2. BCA <br>   3. B.Com <br>   4. BA JMC <br>   5. BA LLB",
@@ -77,36 +81,42 @@ window.onload = function() {
         "2": {
             "0": "Choose From: <br>   1. Degree <br>   2. Bonafide <br>   3. Requirement of Transcripts regarding higher studies <br>   4. Migration <br>   5. Correction of Name <br>   6. Marksheets / Provisional / Consolidated <br>   7. Issuance of Backlog Certificate <br>   8. Issuance of NOC for summer Internship <br>   9. Grace Marks <br>   10. Issuance of Provisioal Certificate <br>   11. Drop Out Form",
             "1": { // send Email
-                "1a": "Query about Degree <br>Enter Course",
-                "2a": "Enter Batch",
-                "3a": "Are you Drop out (Yes/No)"
+                "1a": "Query about Degree <br>Enter Enrollment number",
+                "2a": "Enter E-mail ID",
+                "3a": "Enter Course",
+                "4a": "Enter Batch",
+                "5a": "Are you Drop out (Yes/No)"
             },
             "2": { // Send email
-                "1a": "Enter Purpose"
+                "1a": "Bonafide <br>Enter Enrollment number",
+                "2a": "Enter E-mail ID",
+                "3a": "Enter Purpose"
             },
             // Email or not
             "3": "Not Complete",
             // Add url
-            "4": "Migration <br>Please follow Following instructions: <br>Download migration form from University Site-> <a href=\"" + tips_migration_form + "\" target=\"_blank\">Download Form</a> <br>Submit with Provisional + Consolidated Marksheets <br>Fill it and submit it in the university after getting attested from the Director of the Institute",
-            "5": "Correction of Name <br>Please follow Following instructions: <br>Hand written Application + 500 Rs Challan - To be submitted in the university, Along with 10th Certificate, 12th marksheet, All Xerox of Marksheet, Affidavit by the SDM and Adhar Card",
+            "4": "Migration <br>Please follow Following instructions: <br>Download migration form from University Site-> <a href=\"" + tips_migration_form + "\" target=\"_blank\">Download Form</a> <br>Submit with Provisional + Consolidated Marksheets <br>Fill it and submit it in the university after getting attested from the Director of the Institute.",
+            "5": "Correction of Name <br>Please follow Following instructions: <br>Hand written Application + 500 Rs Challan - To be submitted in the university, Along with 10th Certificate, 12th marksheet, All Xerox of Marksheet, Affidavit by the SDM and Adhar Card.",
             // Add whatsapp number
-            "6": "Marksheets/Provisional/Consolidated <br>Whatsapp No. " + tips_whatsapp_student_support + " of student Cell for further communication " + tips_student_support_mail,
-            "7": "Issuance of Backlog CertificateFor backlog <br>Write application to the Director + All Regular and Reappear marksheets or pdf result <br>Then submit it in the institute",
-            "8": "Issuance of NOC for summer Internship <br>Write an application in favor of the Director needs to be submitted / Shared with Student Support <br>Then submit it in the institute",
+            "6": "Marksheets/Provisional/Consolidated <br>Whatsapp No. " + tips_whatsapp_student_support + " of student Cell for further communication email to" + tips_student_support_mail + ".",
+            "7": "Issuance of Backlog Certificate <br>Follow these instructions: <br>Write application to the Director + All Regular and Reappear marksheets or pdf result <br>Then submit it in the institute.",
+            "8": "Issuance of NOC for summer Internship: <br>Write an application in favor of the Director needs to be submitted / Shared with Student Support <br>Then submit it in the institute.",
             // Add site
-            "9": "Grace Marks <br>Download form from the University Site " + tips_grace_marks_form + " - All Regular + Reappear marksheets(xerox or pdf result) <br>Then Submit it in the univeristy / institute after getting attested from the Director of the Institute.",
-            "10": "Issuance of Provisioal Certificate <br>Write application to the Director + Marksheets(regular/ reappear) + pdf result <br>Then Submit it in the institute",
+            "9": "Grace Marks: <br>Download form from the University Site " + tips_grace_marks_form + " - All Regular + Reappear marksheets(xerox or pdf result) <br>Then Submit it in the univeristy / institute after getting attested from the Director of the Institute.",
+            "10": "Issuance of Provisioal Certificate: <br>Write application to the Director + Marksheets(regular/ reappear) + pdf result <br>Then Submit it in the institute.",
             // Add site
             "11": "Drop Out Form <br>Download form from the University Site " + tips_dropout_form + " - All Regular + Reappear marksheets(xerox or pdf result) <br>Then Submit it in the univeristy / institute after getting attested from the Director of the Institute."
         },
         // Accounts
         "3": {
             "0": "Choose from: <br>   1. Fee Payment <br>   2. Fee Structure <br>   3. Security",
-            "1": "DD Details: " + tips_DDdetails, // Add DD details
+            "1": "Visit our official site and click on Pay fee ", // <br> OR <br>DD Details: " + tips_DDdetails, // Add DD details
             "2": "Visit <a href=\"" + tips_fee + "\" target=\"_blank\">this site</a> to see fee structure",
             "3": { // send Email
-                "1a": "Enter Batch",
-                "2a": "Enter Year"
+                "1a": "Security <br>Enter Enrollment number",
+                "2a": "Enter E-mail ID",
+                "3a": "Enter Batch",
+                "4a": "Enter Year"
             }
         },
         // HR
@@ -187,6 +197,24 @@ window.onload = function() {
         }
     }
 
+    function get_roll(content) {
+        if (/^\d+$/.test(content) && content.length > 8) {
+            user_roll = content;
+            console.log("no. = " + user_roll);
+            return true;
+        }
+        return false;
+    }
+
+    function get_mail(content) {
+        if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(content)) {
+            user_mail = content;
+            console.log("Mail = " + user_mail);
+            return true;
+        }
+        return false;
+    }
+
     async function botResponse(content) {
         console.log("botResponse called " + content);
 
@@ -209,9 +237,10 @@ window.onload = function() {
             console.log("user name = " + content);
             user_name = content;
             options["0"] = options["0"].replace("|user_name|", user_name);
-            // return options["0"].replace("|user_name|", user_name);
             return options["0"];
         }
+
+        content = content.toLowerCase();
 
         let response = "";
         if ((content.length < 3 && Number.isInteger(parseInt(content)) || taking_input)) {
@@ -279,15 +308,22 @@ window.onload = function() {
                         taking_input = true;
                         switch (iter) {
                             case 1:
-                                // check email
+                                if (get_roll(content))
+                                    break;
+                                return wrong_roll;
+                            case 2:
+                                if (get_mail(content))
+                                    break;
+                                return wrong_mail;
+                            case 3:
                                 user_course = content;
                                 console.log("Course = " + user_course);
                                 break;
-                            case 2:
+                            case 4:
                                 user_batch = content;
                                 console.log("Batch = " + user_batch);
                                 break;
-                            case 3:
+                            case 5:
                                 if (content.charAt(0) == "y")
                                     user_drop = "yes";
                                 else
@@ -304,19 +340,28 @@ window.onload = function() {
                     case 2:
                         console.log("Bonafied");
                         taking_input = true;
-                        if (iter == 1) {
-                            user_purpose = content;
-                            console.log("Purpose = " + user_purpose);
-                            iter = 0;
-                            taking_input = false;
-                            response = await sendEmail(2.2);
-                            return response;
-                            // return "Email sent";
+                        switch (iter) {
+                            case 1:
+                                if (get_roll(content))
+                                    break;
+                                return wrong_roll;
+                            case 2:
+                                if (get_mail(content))
+                                    break;
+                                return wrong_mail;
+                            case 3:
+                                user_purpose = content;
+                                console.log("Purpose = " + user_purpose);
+                                iter = 0;
+                                taking_input = false;
+                                response = await sendEmail(2.2);
+                                return response;
+                                // return "Email sent";
                         }
-                        iter = 1;
-                        return options["2"]["2"]["1a"];
+                        iter += 1;
+                        return options["2"]["2"][iter + "a"];
                     case 3:
-                        console.log("2.3 Not Completed")
+                        console.log("2.3 under development")
                         return options["2"]["3"];
                     default:
                         console.log("3 - 11");
@@ -335,10 +380,18 @@ window.onload = function() {
                         taking_input = true;
                         switch (iter) {
                             case 1:
+                                if (get_roll(content))
+                                    break;
+                                return wrong_roll;
+                            case 2:
+                                if (get_mail(content))
+                                    break;
+                                return wrong_mail;
+                            case 3:
                                 user_batch = content;
                                 console.log("Batch = " + user_batch);
                                 break;
-                            case 2:
+                            case 4:
                                 // check year
                                 user_year = content;
                                 taking_input = false;
@@ -399,6 +452,9 @@ window.onload = function() {
                     },
                     body: JSON.stringify({
                         "case": 2.1,
+                        "name": user_name,
+                        "roll": user_roll,
+                        "mail": user_mail,
                         "course": user_course,
                         "batch": user_batch,
                         "drop": user_drop
@@ -414,6 +470,9 @@ window.onload = function() {
                     },
                     body: JSON.stringify({
                         "case": 2.2,
+                        "name": user_name,
+                        "mail": user_mail,
+                        "roll": user_roll,
                         "purpose": user_purpose
                     })
                 };
@@ -430,6 +489,9 @@ window.onload = function() {
                     },
                     body: JSON.stringify({
                         "case": 3.3,
+                        "name": user_name,
+                        "roll": user_roll,
+                        "mail": user_mail,
                         "batch": user_batch,
                         "year": user_year
                     })
