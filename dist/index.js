@@ -1,4 +1,6 @@
 //Run "npm run dev" for compiling any changes
+
+
 //code to execute bi directional communication with chat bot.
 window.onload = function() {
 
@@ -19,6 +21,18 @@ window.onload = function() {
 
     window.toggle1 = toggle1;
     let first_toggle = true;
+    let choice = [0, 0, 0, 0, 0, 0];
+    // let user_email = "";
+    let user_course = "";
+    let user_name = "";
+    let index = 0;
+    let user_batch = "";
+    let user_drop = "";
+    let user_purpose = "";
+    let user_year = "";
+    let taking_input = false;
+    let taking_name = false;
+    let iter = 0;
 
     const courses = {
         1: "BBA",
@@ -33,21 +47,27 @@ window.onload = function() {
     const tips_fee = "https://tips.edu.in/fee-structure";
     const tips_migration_form = "";
     const tips_whatsapp_student_support = "";
+    const tips_student_support_mail = "studentsupport@tips.edu.in";
     const tips_grace_marks_form = "";
     const tips_dropout_form = "";
     const tips_DDdetails = "";
     const tips_hrd_email = "tipsdwarkahrd@gmail.com";
     const tips_hrd_form = "https://tips.edu.in/download_file/13.pdf";
     const tips_hrd_support_no = "9315911710";
+    const tips_bca_no = "9654604666";
+    const tips_bba_bcom_no = "9315911713";
+    const tips_law_no = "9315911716";
+    const tips_bjmc_no = "9315911707";
 
+    const greetings = "Hello, I\'m Chat Bot of Trinity Institute Of Professional Studies. <br>Please enter your name:"
     const options = {
-        "0": "Hello, I\'m Bot. <br>I Operate best when asked short, direct questions. <br>What would you like to talk about <br>   1. Admissions <br>   2. Student Support <br>   3. Accounts <br>   4. HR",
+        "0": "Hello |user_name|. <br>I Operate best when asked short, direct questions. <br>What would you like to talk about <br>   1. Admissions <br>   2. Student Support <br>   3. Accounts <br>   4. HR",
         // Admission
         "1": {
             "0": "Courses Offered <br>   1. BBA <br>   2. BCA <br>   3. B.Com <br>   4. BA JMC <br>   5. BA LLB",
             "any": {
-                "0": "Choose Action <br>   1. Contact (Admission Counsellor- Email) <br>   2. Syllabus, Duration & Promotion Criteria <br>   3. Placements <br>   4. Fee Structure ",
-                "1": "", // Send Email
+                "0": "Choose Action <br>   1. Contact Admission Counsellor <br>   2. Syllabus, Duration & Promotion Criteria <br>   3. Placements <br>   4. Fee Structure ",
+                "1": "Please Contact Admission counsellor of |course| at |c_number|.",
                 "2": "To view syllabus visit <br><a href=\"" + tips_syllabus + "\" target=\"_blank\">This Site</a>",
                 "3": "Placement Link <br><a href=\"" + tips_success + "\" target=\"_blank\">This Site</a>",
                 "4": "Fee - <a href=\"" + tips_fee + "\" target=\"_blank\">This Site</a>"
@@ -70,7 +90,7 @@ window.onload = function() {
             "4": "Migration <br>Please follow Following instructions: <br>Download migration form from University Site-> <a href=\"" + tips_migration_form + "\" target=\"_blank\">Download Form</a> <br>Submit with Provisional + Consolidated Marksheets <br>Fill it and submit it in the university after getting attested from the Director of the Institute",
             "5": "Correction of Name <br>Please follow Following instructions: <br>Hand written Application + 500 Rs Challan - To be submitted in the university, Along with 10th Certificate, 12th marksheet, All Xerox of Marksheet, Affidavit by the SDM and Adhar Card",
             // Add whatsapp number
-            "6": "Marksheets/Provisional/Consolidated <br>Whatsapp No. " + tips_whatsapp_student_support + " of student Cell for further communication student.support@tips.edu.in",
+            "6": "Marksheets/Provisional/Consolidated <br>Whatsapp No. " + tips_whatsapp_student_support + " of student Cell for further communication " + tips_student_support_mail,
             "7": "Issuance of Backlog CertificateFor backlog <br>Write application to the Director + All Regular and Reappear marksheets or pdf result <br>Then submit it in the institute",
             "8": "Issuance of NOC for summer Internship <br>Write an application in favor of the Director needs to be submitted / Shared with Student Support <br>Then submit it in the institute",
             // Add site
@@ -101,16 +121,6 @@ window.onload = function() {
     const chatBx = document.querySelector(".chat-box");
     const chatInp = document.querySelector(".chat-input");
     document.getElementById("sub").focus();
-    let choice = [0, 0, 0, 0, 0, 0];
-    // let user_email = "";
-    let user_course = "";
-    let index = 0;
-    let user_batch = "";
-    let user_drop = "";
-    let user_purpose = "";
-    let user_year = "";
-    let taking_input = false;
-    let iter = 0;
 
     function chattemp(botOrhuman) {
         return (
@@ -189,12 +199,22 @@ window.onload = function() {
             iter = 0;
             taking_input = false;
             return options["0"];
-        } else if (content == "|start|" && first_toggle) {
+        } else if (first_toggle || taking_name) {
+            if (!taking_name) {
+                console.log("not taking input");
+                taking_name = true;
+                return greetings;
+            }
+            taking_name = false;
+            console.log("user name = " + content);
+            user_name = content;
+            options["0"] = options["0"].replace("|user_name|", user_name);
+            // return options["0"].replace("|user_name|", user_name);
             return options["0"];
         }
 
         let response = "";
-        if ((content.length < 3 || taking_input) && Number.isInteger(parseInt(content))) {
+        if ((content.length < 3 && Number.isInteger(parseInt(content)) || taking_input)) {
             if (!taking_input) {
                 choice[index] = parseInt(content);
                 index += 1;
@@ -225,10 +245,22 @@ window.onload = function() {
                         console.log("Action List")
                         return options["1"]["any"]["0"];
                     } else {
-                        // if (choice[2] == 1) {
-                        // response = await sendEmail(1.1);
-                        // return response;
-                        // }
+                        if (choice[2] == 1) {
+                            // response = await sendEmail(1.1);
+                            // return response;
+                            let num = "";
+                            if (choice[1] == 1 || choice[1] == 3)
+                                num = tips_bba_bcom_no;
+                            else if (choice[1] == 2)
+                                num = tips_bca_no;
+                            else if (choice[1] == 4)
+                                num = tips_bjmc_no;
+                            else if (choice[1] == 5)
+                                num = tips_law_no;
+                            else
+                                num = "some internal error";
+                            return options["1"]["any"]["1"].replace("|c_number|", num).replace("|course|", user_course);
+                        }
                         console.log("Info")
                         return options["1"]["any"][choice[index - 1]];
                     }
@@ -355,9 +387,9 @@ window.onload = function() {
     async function sendEmail(option) {
         let content = "";
         switch (option) {
-            case 1.1:
-                console.log("Counsellor (Incomplete)");
-                break;
+            // case 1.1:
+            //     console.log("Counsellor (Incomplete)");
+            //     break;
             case 2.1:
                 console.log("Degree Email");
                 content = {
