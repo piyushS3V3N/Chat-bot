@@ -229,8 +229,6 @@ window.onload = function() {
             taking_input = false;
             end = false;
             return options["0"];
-        } else if (end) {
-            return "Enter \'reset\' to go back to menu";
         } else if (first_toggle || taking_name) {
             if (!taking_name) {
                 console.log("not taking input");
@@ -248,6 +246,9 @@ window.onload = function() {
 
         let response = "";
         if ((content.length < 3 && Number.isInteger(parseInt(content)) || taking_input)) {
+            if (end)
+                return "Enter \'reset\' to go back to menu";
+
             if (!taking_input) {
                 choice[index] = parseInt(content);
                 index += 1;
