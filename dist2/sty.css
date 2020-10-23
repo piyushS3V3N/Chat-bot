@@ -7,140 +7,32 @@
 {
   margin: 0 ;
   right: 50px ;
+  width: 250px ;
   bottom: 20px ;
   height: 70px ;
-  width: 70px ;
+  color: white ;
   position: fixed ;
-  border-radius: 50% ;
+  cursor: pointer ;
+  border-radius: 50px ;
+  border-top-left-radius: 25px ;
+  border-bottom-left-radius: 0 ;
   background-image: linear-gradient(to right, #5B34AE, #4A239d) ;
 }
-/* different tests */
-.containerchtbx .min-chtbx
-{
-  margin: 3px ;
-  padding: 4px ;
-  font-size: 47px ;
-  text-align: center ;
-}
-.containerchtbx .min-chtbx i
-{
-  color: white ;
-  cursor: pointer ;
-}
 .containerchtbx .tt
 {
-  width: 56px ;
-  margin: 17px ;
-  right: 165px ;
-  bottom: 83px ;
-  font-size: 0 ;
-  display: block ;
-  cursor: pointer ;
-  text-align: center ;
-  position: relative ;
+  position: fixed ;
+  font-size: 20px ;
+  margin-top: -2px ;
+  padding-left: 25px ;
 }
-.containerchtbx .tt /*:hover .tt*/
+.containerchtbx .ico h4 i
 {
-  width: 150% ;
-  color: #fff ;
-  padding: 25px ;
-  font-size: 15px ;
-  border-radius: 8px ;
-  background: #5B34AE ;
-  border-top-left-radius: 20px ;
-}
-.containerchtbx/*:hover*/
-{
-  height: 67px ;
-  border-top-left-radius: 0 ;
-  border-bottom-left-radius: 0 ;
-}
-
-/* different tests *//*
-.containerchtbx .min-chtbx
-{
-  margin: 3px ;
-  padding: 4px ;
-  font-size: 47px ;
-  text-align: center ;
-}
-.containerchtbx .min-chtbx i
-{
+  right: 65px ;
+  bottom: 31px ;
   color: white ;
-  cursor: pointer ;
-}
-.containerchtbx .tt
-{
-  width: 56px ;
-  margin: 17px ;
-  right: 165px ;
-  bottom: 83px ;
-  font-size: 0 ;
-  display: block ;
-  text-align: center ;
-  position: relative ;
-}
-.containerchtbx:hover .tt
-{
-  width: 150% ;
-  color: #fff ;
-  padding: 25px ;
-  font-size: 15px ;
-  border-radius: 8px ;
-  background: #5B34AE ;
-  border-top-left-radius: 20px ;
-}
-.containerchtbx:hover
-{
-  height: 67px ;
-  border-top-left-radius: 0 ;
-  border-bottom-left-radius: 0 ;
-}*/
-/* different tests */
-
-/*  put the different tests section in comments and take origianl icon out of comment */
-
-/* Original Icon */
-/*
-.containerchtbx .min-chtbx
-{
-  margin: 0 ;
-  padding: 4px ;
+  position: fixed ;
   font-size: 47px ;
-  text-align: center ;
 }
-.containerchtbx .min-chtbx i
-{
-  color: white ;
-  cursor: pointer ;
-}
-.containerchtbx .tt
-{
-  width: 56px ;
-  right: 150px ;
-  bottom: 83px ;
-  font-size: 0 ;
-  display: block ;
-  text-align: center ;
-  position: relative ;
-}
-.containerchtbx:hover .tt
-{
-  width: 150% ;
-  color: #fff ;
-  padding: 25px ;
-  font-size: 15px ;
-  border-radius: 8px ;
-  background: #5B34AE ;
-  border-top-left-radius: 20px ;
-}
-.containerchtbx:hover
-{
-  height: 67px ;
-  border-top-left-radius: 0 ;
-  border-bottom-left-radius: 0 ;
-}
-*/
 /* style for chat bot when maximized. */
 #active
 {
@@ -280,6 +172,9 @@
   margin: 10px ;
   margin-top: 0 ;
 }
+
+
+
 .chat-input-container
 {
   height: 60px ;
