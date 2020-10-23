@@ -1,4 +1,6 @@
 //Run "npm run dev" for compiling any changes
+
+
 //code to execute bi directional communication with chat bot.
 window.onload = function() {
 
