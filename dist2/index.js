@@ -21,8 +21,13 @@ window.onload = function() {
 
     window.toggle1 = toggle1;
     let first_toggle = true;
+    // Stores choices of user
     let choice = [0, 0, 0, 0, 0, 0];
-    // let user_email = "";
+    // Stores current index of choice
+    let index = 0;
+    // 'true' when choices end
+    let end = false;
+    // User details
     let user_course = "";
     let user_name = "";
     let user_roll = "";
@@ -31,11 +36,12 @@ window.onload = function() {
     let user_drop = "";
     let user_purpose = "";
     let user_year = "";
+    // 'true' when taking input from user for email
     let taking_input = false;
+    // 'true' when taking name of user (at start of chat)
     let taking_name = false;
+    // iter is used when taking user details along with 'taking_input"
     let iter = 0;
-    let index = 0;
-    let end = false;
 
     const courses = {
         1: "BBA",
@@ -48,12 +54,12 @@ window.onload = function() {
     const tips_syllabus = "https://www.tips.edu.in/syllabus";
     const tips_success = "https://tips.edu.in/tipsian-success-stories";
     const tips_fee = "https://tips.edu.in/fee-structure";
-    const tips_migration_form = "";
-    const tips_whatsapp_student_support = "";
+    const tips_migration_form = "#";
+    const tips_whatsapp_student_support = "#";
     const tips_student_support_mail = "studentsupport@tips.edu.in";
-    const tips_grace_marks_form = "";
-    const tips_dropout_form = "";
-    const tips_DDdetails = "";
+    const tips_grace_marks_form = "#";
+    const tips_dropout_form = "#";
+    const tips_DDdetails = "#";
     const tips_hrd_email = "tipsdwarkahrd@gmail.com";
     const tips_hrd_form = "https://tips.edu.in/download_file/13.pdf";
     const tips_hrd_support_no = "9315911710";
@@ -64,15 +70,17 @@ window.onload = function() {
 
     const wrong_roll = "Wrong Enrollment Number: <br>Make sure number does not contain any alphabet <br>Enter again";
     const wrong_mail = "Wrong E-mail ID: <br>Please check entered E-mail ID <br>Enter again";
-    const greetings = "Hello, I\'m Chat Bot of Trinity Institute Of Professional Studies. <br> What's your name:";
+    const greetings = "Hello, I\'m Chat Bot of Trinity Institute Of Professional Studies. <br>Please enter your name:";
     const options = {
+        // '|user_name|' will be replaced by user name
         "0": "Hello |user_name|. <br>I Operate best when asked short, direct questions. <br>Enter \'reset\' anytime to reset the options <br>What would you like to talk about <br>   1. Admissions <br>   2. Student Support <br>   3. Accounts <br>   4. HR",
         // Admission
         "1": {
             "0": "Courses Offered <br>   1. BBA <br>   2. BCA <br>   3. B.Com <br>   4. BA JMC <br>   5. BA LLB",
             "any": {
                 "0": "Choose Action <br>   1. Contact Admission Counsellor <br>   2. Syllabus, Duration & Promotion Criteria <br>   3. Placements <br>   4. Fee Structure ",
-                "1": "Please Contact Admission counsellor of |course| at |c_number|.",
+                // '|course|' & '|c_number|' will be replaced by user course and respective department number
+                "1": "Contact Admission counsellor of |course| at |c_number|.",
                 "2": "To view syllabus visit <br><a href=\"" + tips_syllabus + "\" target=\"_blank\">This Site</a>",
                 "3": "Placement Link <br><a href=\"" + tips_success + "\" target=\"_blank\">This Site</a>",
                 "4": "Fee - <a href=\"" + tips_fee + "\" target=\"_blank\">This Site</a>"
@@ -93,8 +101,7 @@ window.onload = function() {
                 "2a": "Enter E-mail ID",
                 "3a": "Enter Purpose"
             },
-            // Email or not
-            "3": "Not Complete",
+            "3": "For Transcripts regarding higher studies: <br>1. University (Send application to Controller of Examination) + marksheets (Photocopy of Regular and Reappear) <br>2. Institute (Send application to Director) + Marksheets (Photocopy of Regular + Reappear)",
             // Add url
             "4": "Migration <br>Please follow Following instructions: <br>Download migration form from University Site-> <a href=\"" + tips_migration_form + "\" target=\"_blank\">Download Form</a> <br>Submit with Provisional + Consolidated Marksheets <br>Fill it and submit it in the university after getting attested from the Director of the Institute.",
             "5": "Correction of Name <br>Please follow Following instructions: <br>Hand written Application + 500 Rs Challan - To be submitted in the university, Along with 10th Certificate, 12th marksheet, All Xerox of Marksheet, Affidavit by the SDM and Adhar Card.",
@@ -104,7 +111,7 @@ window.onload = function() {
             "8": "Issuance of NOC for summer Internship: <br>Write an application in favor of the Director needs to be submitted / Shared with Student Support <br>Then submit it in the institute.",
             // Add site
             "9": "Grace Marks: <br>Download form from the University Site " + tips_grace_marks_form + " - All Regular + Reappear marksheets(xerox or pdf result) <br>Then Submit it in the univeristy / institute after getting attested from the Director of the Institute.",
-            "10": "Issuance of Provisioal Certificate: <br>Write application to the Director + Marksheets(regular/ reappear) + pdf result <br>Then Submit it in the institute.",
+            "10": "Issuance of provisional Certificate: <br>Write application to the Director + Marksheets(regular/ reappear) + pdf result <br>Then Submit it in the institute.",
             // Add site
             "11": "Drop Out Form <br>Download form from the University Site " + tips_dropout_form + " - All Regular + Reappear marksheets(xerox or pdf result) <br>Then Submit it in the univeristy / institute after getting attested from the Director of the Institute."
         },
@@ -123,8 +130,8 @@ window.onload = function() {
         // HR
         "4": {
             "0": "Job Options <br>   1. Teaching <br>   2. Non-Teaching",
-            "1": "Teaching Jobs are available for: <br>B.COM, BBA, BCA, BA LLB, BA JMC <br>As: <br>Professor, Associate Professor, Assistant Professor <br><br>If Interested send your resume at: " + tips_hrd_email + " <br>Along with this document - <a href=\"" + tips_hrd_form + "\" target=\"_blank\">Click Here</a> <br><br>For Further assistance Contact - " + tips_hrd_support_no,
-            "2": "Non-Teaching Jobs include: <br>Accountant <br>HR / Admin Assistant <br>Examination <br>Receptionist <br>IT / Hardware engineer / Audio / Video Lab <br>Librarian <br><br>If Interested send your resume at: " + tips_hrd_email + " <br>Along with this document - <a href=\"" + tips_hrd_form + "\" target=\"_blank\">Click Here</a> <br><br>For Further assistance Contact - " + tips_hrd_support_no
+            "1": "Teaching Jobs are available for: <br>B.COM, BBA, BCA, BA LLB, BA JMC <br>As: <br>Professor, Associate Professor, Assistant Professor <br><br>If Interested e-mail your resume at: " + tips_hrd_email + " <br>Along with this document - <a href=\"" + tips_hrd_form + "\" target=\"_blank\">Click Here</a> <br><br>For Further assistance Contact - " + tips_hrd_support_no,
+            "2": "Non-Teaching Jobs include: <br>Accountant <br>HR / Admin Assistant <br>Examination <br>Receptionist <br>IT / Hardware engineer / Audio / Video Lab <br>Librarian <br><br>If Interested e-mail your resume at: " + tips_hrd_email + " <br>Along with this document - <a href=\"" + tips_hrd_form + "\" target=\"_blank\">Click Here</a> <br><br>For Further assistance Contact - " + tips_hrd_support_no
         }
     };
 
@@ -368,10 +375,6 @@ window.onload = function() {
                         }
                         iter += 1;
                         return options["2"]["2"][iter + "a"];
-                    case 3:
-                        console.log("2.3 under development")
-                        end = true;
-                        return options["2"]["3"];
                     default:
                         console.log("3 - 11");
                         end = true;
