@@ -52,26 +52,19 @@ def emailHandle():
     EMAIL_CONTENT = ""
 
     email_to = {
-        # 1.1: "",
         2.1: "studentsupport@tips.edu.in",
         2.2: "studentsupport@tips.edu.in",
-        2.3: "",
         3.3: "accounts@tips.edu.in"
     }
 
     # name, roll, mail
-    user_info = "Name - " + req_data["name"] + ", Enrollment number - " + req_data["roll"] + ", E-mail ID - " + \
-                req_data["mail"] + ", "
+    user_info = "Name - " + req_data["name"] + ", Enrollment number - " + req_data["roll"] + ", E-mail ID - " + req_data["mail"] + ", "
 
-    # if case == 1.1:
-    #     EMAIL_CONTENT = ""
     if case == 2.1:
         EMAIL_CONTENT = "Degree Query for course: " + req_data["course"] + ". Batch: " + req_data[
             "batch"] + ". Drop out case: " + req_data["drop"]
     elif case == 2.2:
         EMAIL_CONTENT = "Bonafide for purpose: " + req_data["purpose"]
-    elif case == 2.3:
-        EMAIL_CONTENT = ""
     elif case == 3.3:
         EMAIL_CONTENT = "Accounts Query for security for batch: " + req_data["batch"] + ". Year: " + req_data["year"]
 
