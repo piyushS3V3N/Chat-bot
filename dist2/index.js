@@ -224,6 +224,7 @@ window.onload = function() {
 
         content = content.trim();
         console.log("Content = " + content);
+        content = content.toLowerCase();
 
         if (content == "reset") {
             choice = [0, 0, 0, 0, 0, 0];
@@ -238,6 +239,7 @@ window.onload = function() {
                 taking_name = true;
                 return greetings;
             }
+            content = content.toUpperCase();
             taking_name = false;
             console.log("user name = " + content);
             user_name = content;
@@ -245,7 +247,6 @@ window.onload = function() {
             return options["0"];
         }
 
-        content = content.toLowerCase();
 
         let response = "";
         if ((content.length < 3 && Number.isInteger(parseInt(content)) || taking_input)) {
