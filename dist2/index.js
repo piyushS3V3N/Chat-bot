@@ -157,10 +157,8 @@ window.onload = function() {
         if (chatInp.value != "") {
             document.getElementById("sub").disabled = true;
             appendchatBx(true, chatInp.value);
-            setTimeout(function() {
-                document.getElementById("sub").disabled = false;
-                document.getElementById("sub").focus();
-            }, 500);
+            document.getElementById("sub").disabled = false;
+            document.getElementById("sub").focus();
         }
     }
 
@@ -190,10 +188,8 @@ window.onload = function() {
         });
 
         if (!fromhuman) {
-            setTimeout(function() {
-                chatBx.innerHTML += newChatDiv;
-                chatBx.scrollTop = chatBx.scrollHeight;
-            }, 500);
+            chatBx.innerHTML += newChatDiv;
+            chatBx.scrollTop = chatBx.scrollHeight;
         } else {
             chatBx.innerHTML += newChatDiv;
             chatBx.scrollTop = chatBx.scrollHeight;
